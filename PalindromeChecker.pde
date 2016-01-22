@@ -18,18 +18,34 @@ public void setup()
 //rotator
 public boolean palindrome(String word)
 {
-  String s = new String();
+  /*String s = new String();
   int nLast = word.length() - 1;
   for(int i = nLast; i >= 0; i-- )
-    s += word.substring(i,i+1);
+    s += word.substring(i,i+1);*/
 
-  for(int i = 0; i < word.length(); i++)
-    if(!word.substring(i,i+1).equals(word.substring(" ")))
+ /* String t = new String();
+  for(int i = nLast; i >= 0; i--)
+    if(!word.substring(i,i+1).equals(" "))
+      t = t + word.substring(i,i+1); */
+  int nLast = word.length() -1;
+  String t = new String();
+  for(int i = nLast; i >=0; i--)
+    if(Character.isLetter(word.charAt(i))== true)
+      t = t + word.substring(i,i+1);
+
+  String s= new String();
+  for(int i = 0; i<word.length(); i++)
+    if(Character.isLetter(word.charAt(i)) == true)
+      s = s + word.substring(i,i+1);
+
       
   
   for(int i = 0; i < word.length(); i++)
-    if(word.substring(0).equals(s))
+    if(t.equalsIgnoreCase(s))
       return true;
+    //else if(word.substring(0).equals(t))
+      //return true;;
+    
 
   return false;
 }
